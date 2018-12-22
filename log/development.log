@@ -3027,3 +3027,24 @@ Processing by OrdersController#show as JSON
   [1m[36mOrder Load (0.1ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT 1[0m  [["id", 12]]
 [active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
 Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/12.json" for 69.141.189.196 at 2018-12-22 17:47:54 +0000
+Cannot render console from 69.141.189.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[35mOrder Load (0.1ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT 1  [["id", 12]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (5.52ms)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 0.9ms)
+
+NoMethodError (undefined method `product' for #<Order:0x007fd4849087f0>
+Did you mean?  products
+               products=):
+  app/controllers/orders_controller.rb:11:in `block (2 levels) in show'
+  app/controllers/orders_controller.rb:9:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.8ms)
