@@ -3048,3 +3048,15 @@ Did you mean?  products
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.8ms)
+
+
+Started GET "/orders/12.json" for 69.141.189.196 at 2018-12-22 17:48:36 +0000
+Cannot render console from 69.141.189.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mOrder Load (0.1ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT 1[0m  [["id", 12]]
+[active_model_serializers]   [1m[35mOrderedProduct Load (0.2ms)[0m  SELECT "ordered_products".* FROM "ordered_products" WHERE "ordered_products"."order_id" = ?  [["order_id", 12]]
+[active_model_serializers] No serializer found for resource: #<OrderedProduct id: 12, product_id: 16, order_id: 12, created_at: "2016-02-23 05:10:50", updated_at: "2016-02-23 05:10:50">
+[active_model_serializers]   [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" INNER JOIN "ordered_products" ON "products"."id" = "ordered_products"."product_id" WHERE "ordered_products"."order_id" = ?[0m  [["order_id", 12]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (56.84ms)
+Completed 200 OK in 68ms (Views: 58.4ms | ActiveRecord: 1.6ms)
