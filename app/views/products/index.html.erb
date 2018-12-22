@@ -15,6 +15,7 @@ $(function() {
           inventoryText = "<strong>Sold Out</strong>";
         }
         var ordersId = json['orders'][0]['id']
+        var ordersCreated = json['orders'][0]['created_at']
         var descriptionText = "<p>" + json['description'] + "</p><p>" + inventoryText + "</p><p>" + ordersId + "</p>";
         $("#product-" + id).html(descriptionText);
     });
